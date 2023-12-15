@@ -202,7 +202,7 @@ def redefine_candidate_pairs(candidate_pairs, binary_matrix, model_words, thresh
             refined_pairs.append((i, j))
     return refined_pairs
 
-###
+### CALCULATE THE DISTANCE MATRIX FROM THE DISSIMILARITY (1-JACCARD) ###
 def calculate_distance_matrix(candidate_pairs, binary_matrix, model_words, distance_matrix):
     for i, j in candidate_pairs:
         if i != j:
