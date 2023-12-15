@@ -6,3 +6,5 @@ The solution utilizes advanced techniques such as Locality Sensitive Hashing (LS
 
 lsh_cluster.py: This is the script containing all functions and algorithms for data processing, minHashing, LSH, Jaccard similarity, clustering, and analysis.
 main_cluster.py: This is the primary script where we import the data and start the algorithm by calling the functions from lsh_cluster.py and constructing the plots from the bootstraps.
+
+Programming Buddy: Manuel Dessing
