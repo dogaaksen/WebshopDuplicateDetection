@@ -44,7 +44,7 @@ def clean_title(title):
     return res
 
 ### CREATE TRAINING AND TEST DATA SETS FOR BOOTSRTRAPPING ##
-def custom_train_test_split(data, train_percentage=0.63, random_seed=None):
+def train_test_split(data, train_percentage=0.63, random_seed=None):
     if random_seed is not None:
         np.random.seed(random_seed)
     num_samples = len(data)
@@ -236,7 +236,7 @@ def find_optimal_threshold(data, distance_matrix, LSH_pairs, start=0.3, end=1.0,
         cluster_pairs = hierarchical_clustering(distance_matrix, threshold)
         
         # Evaluate  using F1 score
-        _, _, _, _, _, f1_score, _, _, _ = evaluate_cluster_LSH(LSH_pairs, cluster_pairs, data)
+        _, _, _, _, _, f1_score, _, _, _, _, _ = evaluate_cluster_LSH(LSH_pairs, cluster_pairs, data)
         
         # Update the optimal threshold if the current F1 score is better
         if f1_score > best_f1_score:
@@ -296,7 +296,7 @@ def evaluate_cluster_LSH(LSH_pairs, cluster_pairs, data):
     F1_cluster = 2 * (PQ_cluster * PC_cluster) / (PQ_cluster + PC_cluster) if PQ_cluster + PC_cluster > 0 else 0
     fraction_cluster = len(cluster_pairs) / totalComparisons
    
-    return [PQ, PC, F1StarLSH, PQ_cluster, PC_cluster, F1, F1_cluster, fraction_comparisonLSH, fraction_cluster]
+    return [PQ, PC, F1StarLSH, PQ_cluster, PC_cluster, F1, F1_cluster, fraction_comparisonLSH, fraction_cluster, precision, recall]
 
 
 
